@@ -4,4 +4,4 @@ Nesse repositório contém uma API Rest criada utilizando o framework Spring Boo
 
 # Utilizando a API
 
-Configure as dependências no pom.xml de acordo com o banco de dados de sua preferência (O default da aplicação é o Mysql),  configure o acesso ao banco de dados no recourses/application.properties e depois baixe alguma ferramenta para simular requisições como o PostMan ou o Imsomnia. Pronto, agora é só fazer o build do projeto, iniciar a aplicação dando run no ApiApplication.java e testar a API com o Postman ou o Imsomnia
+Configure as dependências no pom.xml de acordo com o banco de dados de sua preferência (O default da aplicação é o Mysql),  configure o acesso ao banco de dados no recourses/application.properties e depois baixe alguma ferramenta para simular requisições como o PostMan ou o Imsomnia (a porta de acesso no local host é o padrão 8080). Pronto, agora é só fazer o build do projeto, iniciar a aplicação dando run no ApiApplication.java e testar a API com o Postman ou o Imsomnia

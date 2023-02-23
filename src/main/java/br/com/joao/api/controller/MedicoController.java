@@ -6,6 +6,7 @@ import br.com.joao.api.medico.DadosMedicoListar;
 import br.com.joao.api.medico.Medico;
 import br.com.joao.api.repository.MedicoRepository;
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,7 +25,7 @@ public class MedicoController {
 
     @PostMapping
     @Transactional
-    public void cadastrarMedico(@RequestBody DadosMedicoCadastrar dados){
+    public void cadastrarMedico(@RequestBody @Valid DadosMedicoCadastrar dados){
         Medico medico = new Medico(dados);
         this.repository.save(medico);
         System.out.println(medico);

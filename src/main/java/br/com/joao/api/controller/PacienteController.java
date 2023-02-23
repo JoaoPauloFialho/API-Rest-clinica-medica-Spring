@@ -6,6 +6,7 @@ import br.com.joao.api.paciente.DadosPacienteListar;
 import br.com.joao.api.paciente.Paciente;
 import br.com.joao.api.repository.PacienteRepository;
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,7 +21,7 @@ public class PacienteController {
 
     @PostMapping
     @Transactional
-    public void cadastarPaciente(@RequestBody DadosPacienteCadastrar dados){
+    public void cadastarPaciente(@RequestBody @Valid DadosPacienteCadastrar dados){
         Paciente paciente = new Paciente(dados);
         this.repository.save(paciente);
         System.out.println(paciente);

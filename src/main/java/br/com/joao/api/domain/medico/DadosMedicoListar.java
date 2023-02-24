@@ -1,4 +1,4 @@
-package br.com.joao.api.medico;
+package br.com.joao.api.domain.medico;
 
 public record DadosMedicoListar(
         Long id,

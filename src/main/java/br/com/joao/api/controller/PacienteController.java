@@ -1,6 +1,6 @@
 package br.com.joao.api.controller;
 
-import br.com.joao.api.paciente.*;
+import br.com.joao.api.domain.paciente.*;
 import br.com.joao.api.repository.PacienteRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;

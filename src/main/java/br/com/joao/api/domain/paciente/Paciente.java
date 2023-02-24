@@ -1,11 +1,8 @@
-package br.com.joao.api.paciente;
+package br.com.joao.api.domain.paciente;
 
-import br.com.joao.api.endereco.Endereco;
-import br.com.joao.api.medico.DadosMedicoCadastrar;
-import br.com.joao.api.medico.Especialidade;
+import br.com.joao.api.domain.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 
 @Entity
 @Table(name = "pacientes")

@@ -1,6 +1,6 @@
-package br.com.joao.api.medico;
+package br.com.joao.api.domain.medico;
 
-import br.com.joao.api.endereco.Endereco;
+import br.com.joao.api.domain.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

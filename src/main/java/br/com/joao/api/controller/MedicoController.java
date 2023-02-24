@@ -1,6 +1,6 @@
 package br.com.joao.api.controller;
 
-import br.com.joao.api.medico.*;
+import br.com.joao.api.domain.medico.*;
 import br.com.joao.api.repository.MedicoRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/medicos")

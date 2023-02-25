@@ -1,12 +1,15 @@
 package br.com.joao.api.controller;
 
 import br.com.joao.api.domain.usuario.DadosAutenticacao;
+import br.com.joao.api.domain.usuario.Usuario;
+import br.com.joao.api.infra.security.DadosTokenJWT;
+import br.com.joao.api.infra.security.TokenService;
 import jakarta.validation.Valid;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,12 +19,15 @@ public class AutenticacaoController {
     @Autowired
     private AuthenticationManager manager;
 
+    @Autowired
+    private TokenService tokenService;
+
     @PostMapping
     public ResponseEntity efetuaLogin(@RequestBody @Valid DadosAutenticacao dados){
-        var token = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
-        var autentication = this.manager.authenticate(token);
-
-        return ResponseEntity.ok().build();
+        var authenticationToken = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
+        Authentication autentication = this.manager.authenticate(authenticationToken);
+        String tokenJWT = this.tokenService.gerarToken((Usuario) autentication.getPrincipal());
+        return ResponseEntity.ok().body(new DadosTokenJWT(tokenJWT));
     }
 
 }
